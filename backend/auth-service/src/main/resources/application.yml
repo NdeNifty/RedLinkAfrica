@@ -1,0 +1,11 @@
+server:
+  port: 8082
+spring:
+  datasource:
+    url: jdbc:postgresql://ep-lingering-scene-abfgudfc-pooler.eu-west-2.aws.neon.tech/RedLinkAfricaDemodb?sslmode=require&channel_binding=require
+    username: neondb_owner
+    password: npg_6qvIH0MLVGep
+  jpa:
+    hibernate:
+      ddl-auto: update  # Creates tables automatically; change to 'none' after initial setup
+    show-sql: true     # Optional: Logs SQL for debugging
