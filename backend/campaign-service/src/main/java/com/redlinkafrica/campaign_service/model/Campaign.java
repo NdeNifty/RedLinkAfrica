@@ -1,12 +1,8 @@
 package com.redlinkafrica.campaign_service.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
-import jakarta.persistence.Column;
+import jakarta.persistence.*;
 import java.time.LocalDateTime;
+import java.util.List;
 
 @Entity
 @Table(name = "campaigns")
@@ -16,33 +12,47 @@ public class Campaign {
     private Long id;
 
     @Column(nullable = false)
-    private String location; // e.g., "Yaoundé, Cameroon"
+    private String name; // e.g., "Summer Blood Drive 2025"
 
     @Column(nullable = false)
-    private LocalDateTime date;
+    private LocalDateTime startDate;
 
     @Column(nullable = false)
-    private String bloodTypeNeeds; // e.g., "O+, A-"
+    private LocalDateTime endDate;
 
     @Column(nullable = false)
-    private int capacity; // Max number of donors
+    private String town;
 
-    private String crossBorderId; // For cross-border campaigns
-    private int registeredDonors; // Track RSVPs
+    @Column(nullable = false)
+    private String country;
 
-    // Getters, setters, constructors
+    @Column(nullable = false)
+    private int targetDonors; // Target number of donors
+
+    @Column(nullable = false)
+    private String status; // e.g., "PLANNED", "ACTIVE", "COMPLETED"
+
+    @ElementCollection
+    @CollectionTable(name = "campaign_donors", joinColumns = @JoinColumn(name = "campaign_id"))
+    private List<Long> donorIds; // List of donor IDs who participated
+
+    // Getters, setters, constructors (omitted for brevity, add as needed)
     public Long getId() { return id; }
     public void setId(Long id) { this.id = id; }
-    public String getLocation() { return location; }
-    public void setLocation(String location) { this.location = location; }
-    public LocalDateTime getDate() { return date; }
-    public void setDate(LocalDateTime date) { this.date = date; }
-    public String getBloodTypeNeeds() { return bloodTypeNeeds; }
-    public void setBloodTypeNeeds(String bloodTypeNeeds) { this.bloodTypeNeeds = bloodTypeNeeds; }
-    public int getCapacity() { return capacity; }
-    public void setCapacity(int capacity) { this.capacity = capacity; }
-    public String getCrossBorderId() { return crossBorderId; }
-    public void setCrossBorderId(String crossBorderId) { this.crossBorderId = crossBorderId; }
-    public int getRegisteredDonors() { return registeredDonors; }
-    public void setRegisteredDonors(int registeredDonors) { this.registeredDonors = registeredDonors; }
+    public String getName() { return name; }
+    public void setName(String name) { this.name = name; }
+    public LocalDateTime getStartDate() { return startDate; }
+    public void setStartDate(LocalDateTime startDate) { this.startDate = startDate; }
+    public LocalDateTime getEndDate() { return endDate; }
+    public void setEndDate(LocalDateTime endDate) { this.endDate = endDate; }
+    public String getTown() { return town; }
+    public void setTown(String town) { this.town = town; }
+    public String getCountry() { return country; }
+    public void setCountry(String country) { this.country = country; }
+    public int getTargetDonors() { return targetDonors; }
+    public void setTargetDonors(int targetDonors) { this.targetDonors = targetDonors; }
+    public String getStatus() { return status; }
+    public void setStatus(String status) { this.status = status; }
+    public List<Long> getDonorIds() { return donorIds; }
+    public void setDonorIds(List<Long> donorIds) { this.donorIds = donorIds; }
 }

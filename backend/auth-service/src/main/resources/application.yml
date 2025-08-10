@@ -5,7 +5,14 @@ spring:
     url: jdbc:postgresql://ep-lingering-scene-abfgudfc-pooler.eu-west-2.aws.neon.tech/RedLinkAfricaDemodb?sslmode=require&channel_binding=require
     username: neondb_owner
     password: npg_6qvIH0MLVGep
+    hikari:
+      maximum-pool-size: 10
+      minimum-idle: 2
+      connection-timeout: 30000
+      idle-timeout: 600000  # 10 minutes
+      max-lifetime: 1800000  # 30 minutes (adjust based on Neon’s timeout)
+      connection-test-query: SELECT 1  # Validates connections
   jpa:
     hibernate:
-      ddl-auto: update  # Creates tables automatically; change to 'none' after initial setup
-    show-sql: true     # Optional: Logs SQL for debugging
+      ddl-auto: update
+    show-sql: true

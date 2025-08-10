@@ -34,7 +34,10 @@ public class Request {
     private String crossBorderId; // For cross-border requests
     private String status; // e.g., "PENDING", "FULFILLED"
 
-    // Getters, setters, constructors
+    @Column(name = "donor_id") // Link to donor who made the request
+    private Long donorId;
+
+    // Getters, setters, constructors (omitted for brevity, add as needed)
     public Long getId() { return id; }
     public void setId(Long id) { this.id = id; }
     public String getHospitalId() { return hospitalId; }
@@ -51,6 +54,8 @@ public class Request {
     public void setCrossBorderId(String crossBorderId) { this.crossBorderId = crossBorderId; }
     public String getStatus() { return status; }
     public void setStatus(String status) { this.status = status; }
+    public Long getDonorId() { return donorId; }
+    public void setDonorId(Long donorId) { this.donorId = donorId; }
 
     public enum Urgency {
         LOW, HIGH, EMERGENCY

@@ -11,4 +11,9 @@ public interface InventoryRepository extends JpaRepository<Inventory, Long> {
     Optional<Inventory> findByCrossBorderId(String crossBorderId);
     List<Inventory> findByStatus(String status);
     List<Inventory> findByBloodBankIdAndBloodType(String bloodBankId, String bloodType);
+    List<Inventory> findByHospitalId(String hospitalId);
+    List<Inventory> findByBloodBankId(String bloodBankId);
+    List<Inventory> findByTown(String town);
+    List<Inventory> findByCountry(String country);
+    List<Inventory> findByDonatedBy(Long donatedBy); // Ensure this is included
 }

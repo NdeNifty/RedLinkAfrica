@@ -1,5 +1,5 @@
 server:
-  port: 8087
+  port: 8097
 spring:
   datasource:
     url: jdbc:postgresql://ep-lingering-scene-abfgudfc-pooler.eu-west-2.aws.neon.tech/RedLinkAfricaDemodb?sslmode=require&channel_binding=require

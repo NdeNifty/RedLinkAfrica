@@ -33,6 +33,7 @@ public class Donor {
 
     private String bloodType; // e.g., "O+", "A-"
     private boolean eligible; // Based on donation eligibility rules
+    private Long userId;
     private String crossBorderId; // Unique ID for cross-border tracking
 
     @Enumerated(EnumType.STRING)
@@ -58,6 +59,8 @@ public class Donor {
     public void setEligible(boolean eligible) { this.eligible = eligible; }
     public String getCrossBorderId() { return crossBorderId; }
     public void setCrossBorderId(String crossBorderId) { this.crossBorderId = crossBorderId; }
+    public Long getUserId() { return userId; }
+    public void setUserId(Long userId) { this.userId = userId; }
     public Role getRole() { return role; }
     public void setRole(Role role) { this.role = role; }
 

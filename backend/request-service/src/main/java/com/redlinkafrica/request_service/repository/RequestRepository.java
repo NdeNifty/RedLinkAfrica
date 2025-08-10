@@ -10,4 +10,5 @@ public interface RequestRepository extends JpaRepository<Request, Long> {
     List<Request> findByHospitalId(String hospitalId);
     List<Request> findByCrossBorderId(String crossBorderId);
     List<Request> findByStatus(String status);
+    List<Request> findByDonorId(Long donorId); // New method
 }
